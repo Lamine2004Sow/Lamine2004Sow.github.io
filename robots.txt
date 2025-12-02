@@ -1,0 +1,6 @@
+# robots.txt pour GitHub Pages
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://Lamine.2004.Sow.github.io/sitemap.xml

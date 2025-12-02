@@ -1,0 +1,32 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Fichiers temporaires
+*.log
+*.tmp
+.cache/
+
+# Node modules (si vous utilisez npm)
+node_modules/
+package-lock.json
+
+# Environnement Python (si vous testez avec Python)
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Fichiers de build
+dist/
+build/
