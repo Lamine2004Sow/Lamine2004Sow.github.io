@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://Lamine.2004.Sow.github.io/sitemap.xml
+Sitemap: https://lamine2004sow.github.io/sitemap.xml

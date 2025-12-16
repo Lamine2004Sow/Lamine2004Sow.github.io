@@ -21,6 +21,9 @@
     
     <title>Mouhamadou Lamine SOW | Portfolio</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232563eb' rx='20'/><text x='50' y='70' font-family='Arial' font-size='60' font-weight='bold' fill='white' text-anchor='middle'>LS</text></svg>">
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -345,9 +348,9 @@
 </head>
 <body>
     <!-- Language Switcher -->
-    <div class="lang-switcher">
-        <button id="lang-fr" class="active" onclick="switchLanguage('fr')">FR</button>
-        <button id="lang-en" onclick="switchLanguage('en')">EN</button>
+    <div class="lang-switcher" role="group" aria-label="Sélecteur de langue">
+        <button id="lang-fr" class="active" onclick="switchLanguage('fr')" aria-label="Français" aria-pressed="true">FR</button>
+        <button id="lang-en" onclick="switchLanguage('en')" aria-label="English" aria-pressed="false">EN</button>
     </div>
 
     <!-- Hero Section -->
@@ -429,8 +432,13 @@
             // Update button states
             document.querySelectorAll('.lang-switcher button').forEach(btn => {
                 btn.classList.remove('active');
+                btn.setAttribute('aria-pressed', 'false');
             });
-            document.getElementById(`lang-${lang}`).classList.add('active');
+            const btn = document.getElementById(`lang-${lang}`);
+            if (btn) {
+                btn.classList.add('active');
+                btn.setAttribute('aria-pressed', 'true');
+            }
             
             // Update all text elements
             document.querySelectorAll('[data-fr][data-en]').forEach(el => {
