@@ -312,6 +312,18 @@ body {
     transform: translateY(-2px);
 }
 
+.btn-outline {
+    background: transparent;
+    color: var(--accent-light);
+    border: 2px solid var(--accent);
+}
+
+.btn-outline:hover {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--accent-light);
+    transform: translateY(-2px);
+}
+
 .hero-visual {
     display: flex;
     align-items: center;
@@ -463,10 +475,186 @@ section {
     color: var(--text-secondary);
 }
 
-.about-skills h3 {
+.about-quick {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.about-card {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--bg-tertiary);
+    border-radius: 12px;
+    border: 1px solid var(--bg-tertiary);
+    transition: all var(--transition-base);
+}
+
+.about-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.15);
+}
+
+.about-card h3 {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: var(--spacing-xs);
+}
+
+.about-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ============================================
+   Experience & Education (Timeline)
+   ============================================ */
+.experience {
+    background: var(--bg-primary);
+}
+
+.education {
+    background: var(--bg-secondary);
+}
+
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: var(--spacing-lg);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--text-tertiary));
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: calc(-1 * var(--spacing-lg) - 6px);
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--bg-secondary);
+}
+
+.education .timeline-marker {
+    box-shadow: 0 0 0 4px var(--bg-secondary);
+}
+
+.timeline-content {
+    background: var(--bg-tertiary);
+    border-radius: 16px;
+    padding: var(--spacing-lg);
+    border: 1px solid transparent;
+    transition: all var(--transition-base);
+}
+
+.timeline-content:hover {
+    border-color: var(--accent);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-header {
     margin-bottom: var(--spacing-md);
+}
+
+.timeline-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.timeline-company {
+    display: block;
+    color: var(--accent-light);
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.timeline-date {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+}
+
+.timeline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-list li {
+    position: relative;
+    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.timeline-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.85rem;
+}
+
+/* ============================================
+   Skills Section
+   ============================================ */
+.skills {
+    background: var(--bg-primary);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.skills-category {
+    background: var(--bg-secondary);
+    padding: var(--spacing-lg);
+    border-radius: 16px;
+    border: 1px solid var(--bg-tertiary);
+    transition: all var(--transition-base);
+}
+
+.skills-category:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.skills-category h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--accent-light);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
 }
 
 .skills-list {
@@ -480,7 +668,7 @@ section {
     background: var(--bg-tertiary);
     border: 1px solid var(--text-tertiary);
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-secondary);
     transition: all var(--transition-base);
 }
@@ -489,6 +677,41 @@ section {
     border-color: var(--accent);
     color: var(--accent);
     transform: translateY(-2px);
+}
+
+.soft-skills {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.soft-skills-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-primary);
+}
+
+.soft-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.soft-skill-item {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transition: all var(--transition-base);
+}
+
+.soft-skill-item:hover {
+    color: var(--text-primary);
+    border-left-color: var(--accent-light);
+    transform: translateX(4px);
 }
 
 /* ============================================
@@ -687,6 +910,28 @@ section {
 
     .hero-buttons {
         justify-content: center;
+    }
+
+    .timeline {
+        padding-left: var(--spacing-md);
+    }
+
+    .timeline-marker {
+        left: calc(-1 * var(--spacing-md) - 5px);
+        width: 12px;
+        height: 12px;
+    }
+
+    .timeline::before {
+        left: 0;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .soft-skills-grid {
+        grid-template-columns: 1fr;
     }
 }
 

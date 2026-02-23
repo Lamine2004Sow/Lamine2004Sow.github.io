@@ -149,12 +149,14 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.project-card, .stat-item, .about-text, .about-skills');
+    const animateElements = document.querySelectorAll(
+        '.project-card, .stat-item, .about-text, .about-quick, .timeline-item, .skills-category, .soft-skill-item'
+    );
     
     animateElements.forEach((el, index) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
-        el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        el.style.transition = `opacity 0.6s ease ${index * 0.08}s, transform 0.6s ease ${index * 0.08}s`;
         observer.observe(el);
     });
 });
