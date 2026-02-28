@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projet ML Engineering / MLOps - Lamine Sow">
+    <title>ML Engineering & MLOps | Lamine Sow</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project-page.css">
+</head>
+<body>
+    <nav class="nav nav-scrolled">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="index.html">LS</a></div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Accueil</a></li>
+                <li><a href="index.html#about" class="nav-link">À propos</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projets</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
 
+    <main class="project-page">
+        <div class="container">
+            <a href="index.html#projects" class="project-back">← Retour aux projets</a>
+            <header class="project-header">
+                <h1 class="project-page-title">ML Engineering & MLOps</h1>
+                <p class="project-page-subtitle">Systèmes ML robustes et pipelines de production</p>
+                <div class="project-tags">
+                    <span class="tag">ML</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">Engineering</span>
+                </div>
+            </header>
+            <div class="project-body">
+                <p class="project-description">
+                    Développement de systèmes de Machine Learning robustes et scalables pour des applications 
+                    industrielles. Conception de pipelines d'entraînement, validation et déploiement de modèles, 
+                    avec bonnes pratiques de reproductibilité et mise en production.
+                </p>
+                <div class="project-links">
+                    <h3>Liens</h3>
+                    <ul>
+                        <li><a href="#" class="project-link-btn">📄 Rapport / Documentation</a></li>
+                        <li><a href="#" class="project-link-btn">▶ Démo</a></li>
+                        <li><a href="https://github.com/lamine2004sow" class="project-link-btn" target="_blank" rel="noopener">🐙 GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Mouhamadou Lamine Sow. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('navToggle')?.addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

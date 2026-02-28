@@ -786,12 +786,56 @@ section {
     overflow: hidden;
     transition: transform var(--transition-base), box-shadow var(--transition-base);
     border: 1px solid var(--bg-tertiary);
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     border-color: var(--accent);
+}
+
+.project-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+}
+
+.project-card-link:hover .project-link {
+    color: var(--accent-light);
+}
+
+.project-card-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.project-card-actions .btn-small {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.85rem;
+}
+
+.btn-small {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.9rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    display: inline-block;
+}
+
+.btn-small:first-child {
+    background: var(--accent);
+    color: var(--text-primary);
+}
+
+.btn-small:first-child:hover {
+    background: var(--accent-hover);
 }
 
 .project-image {
