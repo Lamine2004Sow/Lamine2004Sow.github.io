@@ -359,6 +359,24 @@ body {
     animation: fadeIn 1s ease-out 0.3s both;
 }
 
+.hero-canvas-wrap {
+    width: 100%;
+    max-width: 420px;
+    height: 420px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 80px rgba(99, 102, 241, 0.15),
+                0 0 160px rgba(99, 102, 241, 0.08);
+}
+
+.hero-canvas-wrap #hero-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .hero-shape {
     width: 400px;
     height: 400px;
