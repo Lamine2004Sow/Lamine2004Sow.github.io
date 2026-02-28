@@ -1,9 +1,8 @@
 // ============================================
-// Loader style AVA – pourcentage 0 → 100
+// Loader – style Fantik (barre + texte)
 // ============================================
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
-    const loaderPct = document.getElementById('loaderPct');
     const heroReveal = document.querySelector('.hero-reveal');
 
     function hideLoader() {
@@ -11,33 +10,10 @@ window.addEventListener('load', () => {
         setTimeout(() => {
             loader.style.display = 'none';
             if (heroReveal) heroReveal.classList.add('started');
-        }, 500);
+        }, 400);
     }
 
-    if (typeof gsap !== 'undefined') {
-        document.documentElement.classList.add('gsap-loaded');
-        gsap.fromTo(loaderPct, { textContent: 0 }, {
-            textContent: 100,
-            duration: 1.2,
-            snap: { textContent: 1 },
-            ease: 'power2.inOut',
-            onComplete: () => {
-                gsap.to(loader, { opacity: 0, duration: 0.5, onComplete: hideLoader });
-            }
-        });
-    } else {
-        let pct = 0;
-        const iv = setInterval(() => {
-            pct += Math.random() * 15 + 5;
-            if (pct >= 100) {
-                pct = 100;
-                clearInterval(iv);
-                loader.classList.add('hidden');
-                setTimeout(hideLoader, 400);
-            }
-            if (loaderPct) loaderPct.textContent = Math.min(100, Math.floor(pct));
-        }, 120);
-    }
+    setTimeout(hideLoader, 1400);
 });
 
 // ============================================
@@ -49,7 +25,7 @@ const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) nav.classList.add('scrolled');
+    if (window.scrollY > 60) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
 });
 
@@ -89,7 +65,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+            window.scrollTo({ top: target.offsetTop - 78, behavior: 'smooth' });
         }
     });
 });
@@ -126,16 +102,16 @@ function typeWriter() {
     }
     setTimeout(typeWriter, typingSpeed);
 }
-setTimeout(() => { if (typewriterElement) typeWriter(); }, 2800);
+setTimeout(() => { if (typewriterElement) typeWriter(); }, 1800);
 
 // ============================================
-// Scroll reveal (GSAP ScrollTrigger – style AVA)
+// Scroll reveal – GSAP ScrollTrigger (style Fantik / motion)
 // ============================================
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.utils.toArray('.sec-title.scroll-reveal').forEach(el => {
-        gsap.fromTo(el, { opacity: 0, y: 32 }, {
+        gsap.fromTo(el, { opacity: 0, y: 36 }, {
             opacity: 1,
             y: 0,
             duration: 0.8,
@@ -145,59 +121,38 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         });
     });
 
-    const staggerConfig = [
-        { sel: '.project-ava-card', stagger: 0.1 },
-        { sel: '.stat-ava', stagger: 0.08 },
-        { sel: '.timeline-ava-item', stagger: 0.12 },
-        { sel: '.skills-ava-block', stagger: 0.06 },
-        { sel: '.contact-ava-link', stagger: 0.1 }
+    const staggerEls = [
+        '.project-card',
+        '.stat',
+        '.timeline-item',
+        '.skill-block',
+        '.contact-link',
+        '.about-text',
+        '.sec-subtitle',
+        '.contact-lead',
+        '.soft-skills'
     ];
-    staggerConfig.forEach(({ sel, stagger }) => {
+    staggerEls.forEach(sel => {
         const els = document.querySelectorAll(sel);
         if (els.length) {
+            const stagger = /project-card|stat|skill-block|timeline-item|contact-link/.test(sel) ? 0.08 : 0;
             gsap.fromTo(els, { opacity: 0, y: 28 }, {
                 opacity: 1,
                 y: 0,
-                duration: 0.65,
+                duration: 0.7,
                 stagger,
                 ease: 'power3.out',
                 scrollTrigger: { trigger: els[0].closest('section') || els[0], start: 'top 82%' }
             });
         }
     });
-
-    const aboutCopy = document.querySelector('.about-copy');
-    if (aboutCopy) {
-        gsap.fromTo(aboutCopy, { opacity: 0, x: -20 }, {
-            opacity: 1,
-            x: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: { trigger: aboutCopy, start: 'top 85%' }
-        });
-    }
-
-    const heroVisual = document.querySelector('.hero-visual');
-    if (heroVisual) {
-        gsap.to(heroVisual, {
-            y: 60,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: '.hero',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: 0.6
-            }
-        });
-    }
 }
 
-// Fallback sans GSAP
-const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -30px 0px' };
+// Fallback Intersection Observer
 const observerReveal = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('revealed'); });
-}, observerOptions);
-document.querySelectorAll('.sec-title.scroll-reveal').forEach(el => observerReveal.observe(el));
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.scroll-reveal').forEach(el => observerReveal.observe(el));
 
 // Counter (stats)
 const counterObserver = new IntersectionObserver((entries) => {
@@ -220,4 +175,4 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 document.querySelectorAll('.stat-counter').forEach(el => counterObserver.observe(el));
 
-console.log('%c Lamine Sow · Portfolio ', 'background: #000; color: #fff; font-size: 12px; padding: 4px 8px;');
+console.log('%c Lamine Sow · Portfolio ', 'background: #1a1a1a; color: #f8f6f3; font-size: 12px; padding: 4px 8px; border-radius: 4px;');
