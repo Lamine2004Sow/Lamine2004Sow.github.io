@@ -11,95 +11,83 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Arrière-plan astronomique (fixe) -->
+    <div class="sky" aria-hidden="true">
+        <div class="sky-gradient"></div>
+        <div class="stars"></div>
+        <div class="stars stars-2"></div>
+        <div class="stars stars-3"></div>
+    </div>
+
+    <!-- Menu fusée à droite : avance avec le scroll -->
+    <aside class="rocket-nav" id="rocketNav">
+        <div class="rocket-nav-progress" id="rocketProgress"></div>
+        <div class="rocket-shape" id="rocketShape">
+            <div class="rocket-body"></div>
+            <div class="rocket-nose"></div>
+            <div class="rocket-flame"></div>
+        </div>
+        <nav class="rocket-menu">
+            <a href="#home" class="rocket-link active" data-section="home">Home</a>
+            <a href="#about" class="rocket-link" data-section="about">About</a>
+            <a href="#experience" class="rocket-link" data-section="experience">Experience</a>
+            <a href="#education" class="rocket-link" data-section="education">Parcours</a>
+            <a href="#skills" class="rocket-link" data-section="skills">Skills</a>
+            <a href="#projects" class="rocket-link" data-section="projects">Projects</a>
+            <a href="#contact" class="rocket-link" data-section="contact">Contact</a>
+        </nav>
+    </aside>
+
     <div class="loader" id="loader">
         <div class="loader-bar"></div>
         <span class="loader-text">Loading</span>
     </div>
 
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="#home" class="nav-logo">Lamine Sow</a>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-bg"></div>
-            <div class="hero-inner hero-reveal">
+    <main class="main-panels">
+        <section id="home" class="panel hero" data-section="home">
+            <div class="panel-inner hero-reveal">
                 <p class="hero-label">Portfolio</p>
                 <h1 class="hero-title">
                     <span class="hero-title-line">Lamine</span>
                     <span class="hero-title-line hero-title-accent">Sow</span>
                 </h1>
                 <p class="hero-role" id="typewriter"></p>
-                <p class="hero-desc">
-                    Étudiant en Informatique (Master). ML Engineering, Research Operations, Decision Systems.
-                </p>
+                <p class="hero-desc">Étudiant en Informatique (Master). ML Engineering, Research Operations, Decision Systems.</p>
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">Voir les projets</a>
                     <a href="#contact" class="btn btn-secondary">Contact</a>
-                    <a href="Mouhamadou-Lamine-SOW-FlowCV-Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Télécharger le CV</a>
+                    <a href="Mouhamadou-Lamine-SOW-FlowCV-Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">CV</a>
                 </div>
             </div>
-            <div class="hero-scroll">
-                <span>Scroll</span>
-                <div class="hero-scroll-line"></div>
-            </div>
+            <div class="hero-scroll"><span>Scroll</span><div class="hero-scroll-line"></div></div>
         </section>
 
-        <section id="about" class="sec">
-            <div class="sec-inner">
-                <h2 class="sec-title scroll-reveal">About</h2>
+        <section id="about" class="panel sec" data-section="about">
+            <div class="panel-inner sec-inner">
+                <h2 class="sec-title">About</h2>
                 <div class="about-layout">
-                    <div class="about-text scroll-reveal">
-                        <p class="about-lead">
-                            Étudiant en 2<sup>e</sup> année du cycle ingénieur en informatique à <strong>Sup Galilée</strong> (Bac+4),
-                            en recherche d’un stage de 2 à 3 mois en <strong>ML Engineering</strong> et <strong>Recherche Opérationnelle</strong>.
-                        </p>
-                        <p>
-                            Passionné par l’IA et l’optimisation. Parcours MPSI puis école d’ingénieur : rigueur scientifique,
-                            spécialisation Reinforcement Learning, systèmes de décision, optimisation combinatoire.
-                        </p>
+                    <div class="about-text">
+                        <p class="about-lead">Étudiant en 2<sup>e</sup> année du cycle ingénieur à <strong>Sup Galilée</strong> (Bac+4), en recherche d'un stage 2 à 3 mois en <strong>ML Engineering</strong> et <strong>Recherche Opérationnelle</strong>.</p>
+                        <p>Passionné par l'IA et l'optimisation. Parcours MPSI puis école d'ingénieur : Reinforcement Learning, systèmes de décision, optimisation combinatoire.</p>
                         <div class="about-meta">
                             <div><span class="meta-label">Localisation</span><span>Saint-Denis, France</span></div>
                             <div><span class="meta-label">Disponibilité</span><span>Stage 2–3 mois · ML & RO</span></div>
                         </div>
                     </div>
-                    <div class="about-stats scroll-reveal">
-                        <div class="stat">
-                            <span class="stat-num">Bac+4</span>
-                            <span class="stat-label">Cycle ingénieur</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-num"><span class="stat-counter" data-target="2" data-suffix="+">0</span></span>
-                            <span class="stat-label">Projets ML & OR</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-num">FR / EN</span>
-                            <span class="stat-label">Anglais B2</span>
-                        </div>
+                    <div class="about-stats">
+                        <div class="stat"><span class="stat-num">Bac+4</span><span class="stat-label">Cycle ingénieur</span></div>
+                        <div class="stat"><span class="stat-num"><span class="stat-counter" data-target="2" data-suffix="+">0</span></span><span class="stat-label">Projets ML & OR</span></div>
+                        <div class="stat"><span class="stat-num">FR / EN</span><span class="stat-label">Anglais B2</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="experience" class="sec sec-dark">
-            <div class="sec-inner">
-                <h2 class="sec-title scroll-reveal">Experience</h2>
+        <section id="experience" class="panel sec sec-dark" data-section="experience">
+            <div class="panel-inner sec-inner">
+                <h2 class="sec-title">Experience</h2>
                 <div class="timeline">
-                    <article class="timeline-item scroll-reveal">
+                    <article class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3>Stagiaire Développeur Full-Stack</h3>
@@ -107,7 +95,7 @@
                             <p class="timeline-date">Juillet – Sept. 2024 · Dakar</p>
                             <ul>
                                 <li>Angular, LoopBack, MongoDB — application web full-stack</li>
-                                <li>Rapport de recherche CI/CD, conteneurisation — présentation équipe technique</li>
+                                <li>Rapport CI/CD, conteneurisation — présentation équipe technique</li>
                             </ul>
                         </div>
                     </article>
@@ -115,99 +103,62 @@
             </div>
         </section>
 
-        <section id="education" class="sec">
-            <div class="sec-inner">
-                <h2 class="sec-title scroll-reveal">Parcours</h2>
+        <section id="education" class="panel sec" data-section="education">
+            <div class="panel-inner sec-inner">
+                <h2 class="sec-title">Parcours</h2>
                 <div class="timeline">
-                    <article class="timeline-item scroll-reveal">
+                    <article class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3>Cycle Ingénieur Informatique</h3>
                             <p class="timeline-company">Sup Galilée / Sorbonne Paris Nord</p>
                             <p class="timeline-date">Sept. 2024 – Juin 2027 · Villetaneuse</p>
-                            <ul>
-                                <li>Conception, développement, déploiement · Architecture réseau & BDD · Management de projets & analyse de données</li>
-                            </ul>
+                            <ul><li>Conception, développement, déploiement · Réseau & BDD · Management & analyse de données</li></ul>
                         </div>
                     </article>
-                    <article class="timeline-item scroll-reveal">
+                    <article class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h3>Classe Préparatoire MPSI</h3>
                             <p class="timeline-company">ESMT Dakar</p>
                             <p class="timeline-date">Sept. 2022 – Mai 2024</p>
-                            <ul>
-                                <li>Maths, physique, SII · Algorithmique, Python, modélisation numérique</li>
-                            </ul>
+                            <ul><li>Maths, physique, SII · Algorithmique, Python</li></ul>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="sec sec-dark">
-            <div class="sec-inner">
-                <h2 class="sec-title scroll-reveal">Skills</h2>
+        <section id="skills" class="panel sec sec-dark" data-section="skills">
+            <div class="panel-inner sec-inner">
+                <h2 class="sec-title">Skills</h2>
                 <div class="skills-grid">
-                    <div class="skill-block scroll-reveal">
-                        <h3>Programmation</h3>
-                        <p>Python · Julia · C/C++ · Java · PHP · JavaScript · TypeScript</p>
-                    </div>
-                    <div class="skill-block scroll-reveal">
-                        <h3>Data & BDD</h3>
-                        <p>PostgreSQL · MySQL · MongoDB · SQL</p>
-                    </div>
-                    <div class="skill-block scroll-reveal">
-                        <h3>Optimisation & RO</h3>
-                        <p>Combinatoire · p-médian, TSP, Knapsack · Heuristiques · PLNE · OR-Tools · PuLP · CPLEX · GLPK</p>
-                    </div>
-                    <div class="skill-block scroll-reveal">
-                        <h3>ML & IA</h3>
-                        <p>Reinforcement Learning · Q-learning, SARSA · PyTorch · TensorFlow · Scikit-learn · NumPy · Pandas · SciPy</p>
-                    </div>
-                    <div class="skill-block scroll-reveal">
-                        <h3>Outils</h3>
-                        <p>Git · Linux · LaTeX · Markdown</p>
-                    </div>
+                    <div class="skill-block"><h3>Programmation</h3><p>Python · Julia · C/C++ · Java · PHP · JavaScript · TypeScript</p></div>
+                    <div class="skill-block"><h3>Data & BDD</h3><p>PostgreSQL · MySQL · MongoDB · SQL</p></div>
+                    <div class="skill-block"><h3>Optimisation & RO</h3><p>Combinatoire · p-médian, TSP · PLNE · OR-Tools · PuLP · CPLEX</p></div>
+                    <div class="skill-block"><h3>ML & IA</h3><p>Reinforcement Learning · PyTorch · TensorFlow · Scikit-learn · NumPy · Pandas</p></div>
+                    <div class="skill-block"><h3>Outils</h3><p>Git · Linux · LaTeX · Markdown</p></div>
                 </div>
-                <div class="soft-skills scroll-reveal">
-                    <h3>Soft skills</h3>
-                    <p>Esprit analytique · Rigueur scientifique · Autonomie · Pensée critique · Travail en équipe · Communication</p>
-                </div>
+                <div class="soft-skills"><h3>Soft skills</h3><p>Esprit analytique · Rigueur · Autonomie · Travail en équipe · Communication</p></div>
             </div>
         </section>
 
-        <section id="projects" class="sec">
-            <div class="sec-inner">
-                <h2 class="sec-title scroll-reveal">Projects</h2>
-                <p class="sec-subtitle scroll-reveal">Selected work.</p>
+        <section id="projects" class="panel sec" data-section="projects">
+            <div class="panel-inner sec-inner">
+                <h2 class="sec-title">Projects</h2>
+                <p class="sec-subtitle">Selected work.</p>
                 <div class="projects-grid">
-                    <a href="projet_rl.html" class="project-card scroll-reveal">
-                        <span class="project-num">01</span>
-                        <h3>Reinforcement Learning</h3>
-                        <p>Optimisation de trajectoires et systèmes de décision.</p>
-                        <span class="project-arrow">→</span>
-                    </a>
-                    <a href="projet_or.html" class="project-card scroll-reveal">
-                        <span class="project-num">02</span>
-                        <h3>Recherche opérationnelle</h3>
-                        <p>Ring-Star Problem — p-médian, TSP, heuristiques, PLNE.</p>
-                        <span class="project-arrow">→</span>
-                    </a>
-                    <a href="projet_mlops.html" class="project-card scroll-reveal">
-                        <span class="project-num">03</span>
-                        <h3>ML Engineering & MLOps</h3>
-                        <p>Systèmes ML robustes et scalables.</p>
-                        <span class="project-arrow">→</span>
-                    </a>
+                    <a href="projet_rl.html" class="project-card"><span class="project-num">01</span><h3>Reinforcement Learning</h3><p>Optimisation de trajectoires et systèmes de décision.</p><span class="project-arrow">→</span></a>
+                    <a href="projet_or.html" class="project-card"><span class="project-num">02</span><h3>Recherche opérationnelle</h3><p>Ring-Star Problem — p-médian, TSP, heuristiques, PLNE.</p><span class="project-arrow">→</span></a>
+                    <a href="projet_mlops.html" class="project-card"><span class="project-num">03</span><h3>ML Engineering & MLOps</h3><p>Systèmes ML robustes et scalables.</p><span class="project-arrow">→</span></a>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="sec sec-dark">
-            <div class="sec-inner">
-                <h2 class="sec-title scroll-reveal">Contact</h2>
-                <p class="contact-lead scroll-reveal">Collaboration ou discussion sur l’IA, le RL ou l’optimisation.</p>
+        <section id="contact" class="panel sec sec-dark" data-section="contact">
+            <div class="panel-inner sec-inner">
+                <h2 class="sec-title">Contact</h2>
+                <p class="contact-lead">Collaboration ou discussion sur l'IA, le RL ou l'optimisation.</p>
                 <div class="contact-links">
                     <a href="https://github.com/lamine2004sow" class="contact-link" target="_blank" rel="noopener">GitHub</a>
                     <a href="https://linkedin.com/in/lamine-sow" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
@@ -218,9 +169,7 @@
     </main>
 
     <footer class="footer">
-        <div class="sec-inner">
-            <p>© 2026 Mouhamadou Lamine Sow</p>
-        </div>
+        <div class="sec-inner"><p>© 2026 Mouhamadou Lamine Sow</p></div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
