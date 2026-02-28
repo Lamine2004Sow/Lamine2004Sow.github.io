@@ -1,11 +1,11 @@
 /**
- * Scène 3D Hero - Robot animé (style CES / Maddys)
- * Remplace l'ancien "crayon" par un robot 3D avec animations.
+ * Scène 3D Hero - Robot animé (style AVA SRG / design studio)
+ * Matériaux métalliques, animations fluides, particules et profondeur.
  */
 (function () {
     'use strict';
 
-    let scene, camera, renderer, robot, particles;
+    let scene, camera, renderer, robot, particles, ring;
     let clock = new THREE.Clock();
     const accentColor = 0x6366f1;
     const accentLight = 0xa5b4fc;
@@ -21,7 +21,7 @@
         // Scene
         scene = new THREE.Scene();
         scene.background = null; // transparent
-        scene.fog = new THREE.FogExp2(0x0a0a0a, 0.012);
+        scene.fog = new THREE.FogExp2(0x0a0a0a, 0.008);
 
         // Camera
         camera = new THREE.PerspectiveCamera(28, width / height, 0.1, 1000);
@@ -38,50 +38,64 @@
             renderer.outputEncoding = THREE.sRGBEncoding;
         }
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1;
+        renderer.toneMappingExposure = 1.05;
         if (renderer.shadowMap) {
             renderer.shadowMap.enabled = true;
             renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         }
 
-        // Lights
-        const ambient = new THREE.AmbientLight(0x404060, 0.6);
+        // Lights (style studio – plus contrasté)
+        const ambient = new THREE.AmbientLight(0x303050, 0.5);
         scene.add(ambient);
 
-        const mainLight = new THREE.DirectionalLight(0xffffff, 0.9);
-        mainLight.position.set(3, 5, 4);
+        const mainLight = new THREE.DirectionalLight(0xffffff, 1);
+        mainLight.position.set(4, 6, 5);
         mainLight.castShadow = true;
+        mainLight.shadow.mapSize.width = 1024;
+        mainLight.shadow.mapSize.height = 1024;
         scene.add(mainLight);
 
-        const fillLight = new THREE.PointLight(accentLight, 0.5, 20);
-        fillLight.position.set(-2, 1, 3);
+        const fillLight = new THREE.PointLight(accentLight, 0.6, 25);
+        fillLight.position.set(-3, 0, 4);
         scene.add(fillLight);
 
-        const accentPoint = new THREE.PointLight(accentColor, 0.4, 15);
-        accentPoint.position.set(0, 2, 2);
+        const accentPoint = new THREE.PointLight(accentColor, 0.5, 18);
+        accentPoint.position.set(0, 2, 3);
         scene.add(accentPoint);
+
+        // Anneau décoratif derrière le robot (style AVA / identité visuelle)
+        const ringGeom = new THREE.TorusGeometry(1.4, 0.02, 16, 64);
+        const ringMat = new THREE.MeshBasicMaterial({
+            color: accentColor,
+            transparent: true,
+            opacity: 0.25
+        });
+        ring = new THREE.Mesh(ringGeom, ringMat);
+        ring.rotation.x = Math.PI / 2;
+        ring.position.y = -0.3;
+        scene.add(ring);
 
         // Robot (groupe parent pour rotation / flottement)
         robot = new THREE.Group();
 
         const matBody = new THREE.MeshStandardMaterial({
-            color: 0x2a2a3a,
-            metalness: 0.6,
-            roughness: 0.35,
+            color: 0x1e1e2e,
+            metalness: 0.7,
+            roughness: 0.3,
             emissive: accentColor,
-            emissiveIntensity: 0.08
+            emissiveIntensity: 0.06
         });
         const matAccent = new THREE.MeshStandardMaterial({
             color: accentColor,
-            metalness: 0.5,
-            roughness: 0.4,
+            metalness: 0.6,
+            roughness: 0.35,
             emissive: accentColor,
-            emissiveIntensity: 0.2
+            emissiveIntensity: 0.25
         });
         const matEye = new THREE.MeshStandardMaterial({
             color: 0xffffff,
             emissive: accentLight,
-            emissiveIntensity: 0.6
+            emissiveIntensity: 0.7
         });
 
         // Base
@@ -150,22 +164,24 @@
 
         scene.add(robot);
 
-        // Particules en arrière-plan (style CES / Maddys)
-        const particleCount = 120;
+        // Particules (style AVA – plus doux, additive)
+        const particleCount = 200;
         const particleGeom = new THREE.BufferGeometry();
         const positions = new Float32Array(particleCount * 3);
         for (let i = 0; i < particleCount; i++) {
-            positions[i * 3] = (Math.random() - 0.5) * 12;
-            positions[i * 3 + 1] = (Math.random() - 0.5) * 12;
-            positions[i * 3 + 2] = (Math.random() - 0.5) * 8 - 2;
+            positions[i * 3] = (Math.random() - 0.5) * 14;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 14;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 10 - 2;
         }
         particleGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         const particleMat = new THREE.PointsMaterial({
             color: accentColor,
-            size: 0.06,
+            size: 0.05,
             transparent: true,
-            opacity: 0.4,
-            sizeAttenuation: true
+            opacity: 0.35,
+            sizeAttenuation: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
         });
         particles = new THREE.Points(particleGeom, particleMat);
         scene.add(particles);
@@ -190,16 +206,22 @@
         const t = clock.getElapsedTime();
 
         if (robot) {
-            robot.rotation.y = t * 0.25;
-            robot.position.y = Math.sin(t * 0.6) * 0.08;
+            robot.rotation.y = t * 0.2;
+            robot.position.y = Math.sin(t * 0.5) * 0.06;
             if (robot.userData.leftArm) {
-                robot.userData.leftArm.rotation.z = 0.3 + Math.sin(t * 1.2) * 0.15;
-                robot.userData.rightArm.rotation.z = -0.3 - Math.sin(t * 1.2) * 0.15;
+                const armSwing = Math.sin(t * 0.9) * 0.12;
+                robot.userData.leftArm.rotation.z = 0.3 + armSwing;
+                robot.userData.rightArm.rotation.z = -0.3 - armSwing;
             }
         }
 
+        if (ring) {
+            ring.rotation.z = t * 0.15;
+            ring.position.y = -0.3 + Math.sin(t * 0.4) * 0.02;
+        }
+
         if (particles) {
-            particles.rotation.y = t * 0.03;
+            particles.rotation.y = t * 0.02;
         }
 
         renderer.render(scene, camera);

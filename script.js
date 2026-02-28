@@ -1,16 +1,36 @@
 // ============================================
-// Loader + Hero reveal (style melboucierayane)
+// Loader + Hero reveal (style AVA SRG / GSAP)
 // ============================================
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
+    const loaderBar = document.querySelector('.loader-bar');
+    const loaderLogo = document.querySelector('.loader-logo');
     const heroReveal = document.querySelector('.hero-reveal');
-    setTimeout(() => {
-        loader.classList.add('hidden');
+
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        document.documentElement.classList.add('gsap-loaded');
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline({ onComplete: () => {
+            loader.classList.add('hidden');
+            setTimeout(() => {
+                loader.style.display = 'none';
+                if (heroReveal) heroReveal.classList.add('started');
+            }, 400);
+        }});
+
+        tl.to(loaderBar, { width: '100%', duration: 1.2, ease: 'power2.inOut' }, 0)
+          .to(loaderLogo, { scale: 1.05, opacity: 0.9, duration: 0.3, ease: 'power2.out' }, 0.5)
+          .to(loader, { opacity: 0, duration: 0.6, ease: 'power2.inOut' }, 1.4);
+    } else {
         setTimeout(() => {
-            loader.style.display = 'none';
-            if (heroReveal) heroReveal.classList.add('started');
-        }, 500);
-    }, 1200);
+            loader.classList.add('hidden');
+            setTimeout(() => {
+                loader.style.display = 'none';
+                if (heroReveal) heroReveal.classList.add('started');
+            }, 500);
+        }, 1200);
+    }
 });
 
 // ============================================
@@ -133,8 +153,75 @@ setTimeout(() => {
 }, 3000);
 
 // ============================================
-// Scroll Animations (reveal + stagger style melboucierayane)
+// Scroll Animations (GSAP ScrollTrigger - style AVA SRG)
 // ============================================
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Section titles: reveal avec soulignement progressif
+    gsap.utils.toArray('.section-title.scroll-reveal').forEach((el) => {
+        gsap.fromTo(el, { opacity: 0, y: 40 }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+            onComplete: () => el.classList.add('revealed')
+        });
+    });
+
+    // Stagger des cartes / blocs (projets, stats, timeline, skills)
+    const staggerSelectors = [
+        { sel: '.project-card', stagger: 0.12 },
+        { sel: '.stat-item', stagger: 0.1 },
+        { sel: '.about-card', stagger: 0.15 },
+        { sel: '.timeline-item', stagger: 0.15 },
+        { sel: '.skills-category', stagger: 0.08 },
+        { sel: '.soft-skill-item', stagger: 0.06 }
+    ];
+    staggerSelectors.forEach(({ sel, stagger }) => {
+        const els = document.querySelectorAll(sel);
+        if (els.length) {
+            gsap.fromTo(els, { opacity: 0, y: 36 }, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                stagger,
+                ease: 'power3.out',
+                scrollTrigger: { trigger: els[0].closest('section') || els[0], start: 'top 80%' }
+            });
+        }
+    });
+
+    // About text (révélation unique)
+    const aboutText = document.querySelector('.about-text');
+    if (aboutText) {
+        gsap.fromTo(aboutText, { opacity: 0, x: -24 }, {
+            opacity: 1,
+            x: 0,
+            duration: 0.9,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: aboutText, start: 'top 82%' }
+        });
+    }
+
+    // Parallax léger sur le hero visual
+    const heroVisual = document.querySelector('.hero-visual');
+    if (heroVisual) {
+        gsap.to(heroVisual, {
+            y: () => 80,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 0.8
+            }
+        });
+    }
+}
+
+// Fallback sans GSAP : Intersection Observer (déjà présent)
 const observerOptions = {
     threshold: 0.12,
     rootMargin: '0px 0px -40px 0px'
@@ -176,25 +263,27 @@ const observerStagger = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Section titles: reveal + underline
+// Section titles: reveal + underline (si pas GSAP)
 document.querySelectorAll('.section-title.scroll-reveal').forEach(el => {
     observerReveal.observe(el);
 });
 
-// Staggered content (same list as before, but delay by sibling index)
+// Staggered content fallback
 document.addEventListener('DOMContentLoaded', () => {
-    const staggerSelectors = [
-        '.project-card', '.stat-item', '.about-text', '.about-card',
-        '.timeline-item', '.skills-category', '.soft-skill-item'
-    ];
-    staggerSelectors.forEach(sel => {
-        document.querySelectorAll(sel).forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(32px)';
-            el.style.transition = 'opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)';
-            observerStagger.observe(el);
+    if (typeof gsap === 'undefined') {
+        const staggerSelectors = [
+            '.project-card', '.stat-item', '.about-text', '.about-card',
+            '.timeline-item', '.skills-category', '.soft-skill-item'
+        ];
+        staggerSelectors.forEach(sel => {
+            document.querySelectorAll(sel).forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(32px)';
+                el.style.transition = 'opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)';
+                observerStagger.observe(el);
+            });
         });
-    });
+    }
 });
 
 // Counter animation (stats)
@@ -221,16 +310,17 @@ const counterObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.stat-counter').forEach(el => counterObserver.observe(el));
 
 // ============================================
-// Parallax Effect (optional)
+// Parallax Effect (désactivé si GSAP ScrollTrigger gère le hero)
 // ============================================
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroVisual = document.querySelector('.hero-visual');
-    
-    if (heroVisual && scrolled < window.innerHeight) {
-        heroVisual.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
+if (typeof gsap === 'undefined' || !document.querySelector('.hero-visual')) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroVisual = document.querySelector('.hero-visual');
+        if (heroVisual && scrolled < window.innerHeight) {
+            heroVisual.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+    });
+}
 
 // ============================================
 // Form Handling (if needed in future)
