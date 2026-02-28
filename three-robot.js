@@ -7,8 +7,8 @@
 
     let scene, camera, renderer, robot, particles, ring;
     let clock = new THREE.Clock();
-    const accentColor = 0x6366f1;
-    const accentLight = 0xa5b4fc;
+    const accentColor = 0xffffff;
+    const accentLight = 0xcccccc;
 
     function init() {
         const wrap = document.getElementById('hero-canvas-wrap');
@@ -66,9 +66,9 @@
         // Anneau décoratif derrière le robot (style AVA / identité visuelle)
         const ringGeom = new THREE.TorusGeometry(1.4, 0.02, 16, 64);
         const ringMat = new THREE.MeshBasicMaterial({
-            color: accentColor,
+            color: 0xffffff,
             transparent: true,
-            opacity: 0.25
+            opacity: 0.12
         });
         ring = new THREE.Mesh(ringGeom, ringMat);
         ring.rotation.x = Math.PI / 2;
@@ -79,23 +79,23 @@
         robot = new THREE.Group();
 
         const matBody = new THREE.MeshStandardMaterial({
-            color: 0x1e1e2e,
-            metalness: 0.7,
-            roughness: 0.3,
-            emissive: accentColor,
-            emissiveIntensity: 0.06
+            color: 0x1a1a1a,
+            metalness: 0.75,
+            roughness: 0.28,
+            emissive: 0x333333,
+            emissiveIntensity: 0.05
         });
         const matAccent = new THREE.MeshStandardMaterial({
-            color: accentColor,
-            metalness: 0.6,
-            roughness: 0.35,
-            emissive: accentColor,
-            emissiveIntensity: 0.25
+            color: 0xffffff,
+            metalness: 0.5,
+            roughness: 0.4,
+            emissive: 0xffffff,
+            emissiveIntensity: 0.15
         });
         const matEye = new THREE.MeshStandardMaterial({
             color: 0xffffff,
-            emissive: accentLight,
-            emissiveIntensity: 0.7
+            emissive: 0xeeeeee,
+            emissiveIntensity: 0.5
         });
 
         // Base
@@ -132,7 +132,7 @@
         robot.add(antenna);
         const antennaBall = new THREE.Mesh(
             new THREE.SphereGeometry(0.04, 12, 12),
-            new THREE.MeshStandardMaterial({ color: accentColor, emissive: accentColor, emissiveIntensity: 0.3 })
+            new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 0.2 })
         );
         antennaBall.position.set(0, 0.145, 0);
         antenna.add(antennaBall);
@@ -175,10 +175,10 @@
         }
         particleGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         const particleMat = new THREE.PointsMaterial({
-            color: accentColor,
+            color: 0xffffff,
             size: 0.05,
             transparent: true,
-            opacity: 0.35,
+            opacity: 0.2,
             sizeAttenuation: true,
             blending: THREE.AdditiveBlending,
             depthWrite: false

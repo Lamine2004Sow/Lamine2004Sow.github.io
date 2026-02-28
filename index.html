@@ -8,368 +8,246 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Loader -->
+    <!-- Loader style AVA : pourcentage minimal -->
     <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-logo">LS</div>
-            <div class="loader-progress">
-                <div class="loader-bar"></div>
-            </div>
+        <div class="loader-inner">
+            <span class="loader-pct" id="loaderPct">0</span>
+            <span class="loader-pct-suffix">%</span>
         </div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navigation style AVA : [ projects ] about … -->
     <nav class="nav" id="nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">LS</a>
-            </div>
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo">Lamine Sow<span class="nav-logo-slash">_</span></a>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active">Accueil</a></li>
-                <li><a href="#about" class="nav-link">À propos</a></li>
-                <li><a href="#experience" class="nav-link">Expériences</a></li>
-                <li><a href="#education" class="nav-link">Parcours</a></li>
-                <li><a href="#skills" class="nav-link">Compétences</a></li>
-                <li><a href="#projects" class="nav-link">Projets</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#projects" class="nav-link">[ projects ]</a></li>
+                <li><a href="#about" class="nav-link">about</a></li>
+                <li><a href="#experience" class="nav-link">experience</a></li>
+                <li><a href="#education" class="nav-link">parcours</a></li>
+                <li><a href="#skills" class="nav-link">skills</a></li>
+                <li><a href="#contact" class="nav-link">contact</a></li>
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
             </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero style AVA : we / are / LAMINE SOW / 01 05 -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text hero-reveal">
-                <h1 class="hero-title">
-                    <span class="title-line-wrap"><span class="title-line">Mouhamadou</span></span>
-                    <span class="title-line-wrap"><span class="title-line title-line-accent">Lamine Sow</span></span>
-                </h1>
-                <p class="hero-subtitle hero-reveal-item" data-delay="2">
-                    <span id="typewriter"></span>
-                </p>
-                <p class="hero-description hero-reveal-item" data-delay="3">
-                    Étudiant en Informatique (niveau Master).<br>
-                    Spécialisé en ML Engineering, Operations Research et Decision Systems.
-                </p>
-                <div class="hero-buttons hero-reveal-item" data-delay="4">
-                    <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-                    <a href="#contact" class="btn btn-secondary">Me contacter</a>
-                    <a href="Mouhamadou-Lamine-SOW-FlowCV-Resume.pdf" class="btn btn-outline" target="_blank" rel="noopener">Télécharger le CV</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div id="hero-canvas-wrap" class="hero-canvas-wrap">
-                    <canvas id="hero-canvas"></canvas>
-                </div>
+        <div class="hero-inner hero-reveal">
+            <p class="hero-pretitle">
+                <span class="hero-pretitle-line">we</span>
+                <span class="hero-pretitle-line">are</span>
+            </p>
+            <h1 class="hero-title">
+                <span class="hero-title-name">Lamine Sow</span>
+            </h1>
+            <p class="hero-code hero-reveal-item" data-delay="1">01 / 05</p>
+            <p class="hero-subtitle hero-reveal-item" data-delay="2">
+                <span id="typewriter"></span>
+            </p>
+            <p class="hero-desc hero-reveal-item" data-delay="3">
+                Étudiant en Informatique (Master). ML Engineering, Research Operations, Decision Systems.
+            </p>
+            <div class="hero-cta hero-reveal-item" data-delay="4">
+                <a href="#contact" class="btn-ava">
+                    <span>contact</span>
+                    <span class="btn-arrow"></span>
+                </a>
+                <a href="#projects" class="btn-ava btn-ava-outline">
+                    <span>[ projects ]</span>
+                    <span class="btn-arrow"></span>
+                </a>
+                <a href="Mouhamadou-Lamine-SOW-FlowCV-Resume.pdf" class="btn-ava btn-ava-ghost" target="_blank" rel="noopener">CV</a>
             </div>
         </div>
-        <div class="scroll-indicator hero-reveal-item" data-delay="5">
-            <span class="scroll-text">scroll down</span>
-            <div class="scroll-arrow"></div>
+        <div class="hero-visual">
+            <div id="hero-canvas-wrap" class="hero-canvas-wrap">
+                <canvas id="hero-canvas"></canvas>
+            </div>
+        </div>
+        <div class="hero-scroll hero-reveal-item" data-delay="5">
+            <span>scroll</span>
+            <div class="hero-scroll-arrow"></div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">À propos</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        Étudiant en 2<sup>e</sup> année du cycle ingénieur en informatique à <strong>Sup Galilée</strong> (Bac+4), 
-                        je suis à la recherche d’un stage de 2 à 3 mois en <strong>ML Engineering</strong> et 
-                        <strong>Recherche Opérationnelle</strong>. Passionné par l’intelligence artificielle et l’optimisation, 
-                        je souhaite mettre en pratique mes compétences en analyse statistique, machine learning et 
-                        optimisation dans un environnement innovant et challengeant.
+    <!-- About : [ about ]_ -->
+    <section id="about" class="sec">
+        <div class="sec-inner">
+            <h2 class="sec-title scroll-reveal">[ about ]<span class="sec-title-suffix">_</span></h2>
+            <div class="about-grid">
+                <div class="about-copy">
+                    <p class="about-lead">
+                        Étudiant en 2<sup>e</sup> année du cycle ingénieur en informatique à <strong>Sup Galilée</strong> (Bac+4),
+                        en recherche d’un stage de 2 à 3 mois en <strong>ML Engineering</strong> et <strong>Recherche Opérationnelle</strong>.
                     </p>
                     <p>
-                        Mon parcours en classe préparatoire MPSI puis en école d’ingénieur m’a forgé une rigueur 
-                        scientifique et des capacités analytiques solides. Je me spécialise dans le Reinforcement Learning, 
-                        les systèmes de décision et l’optimisation combinatoire.
+                        Passionné par l’IA et l’optimisation. Parcours MPSI puis école d’ingénieur : rigueur scientifique,
+                        spécialisation Reinforcement Learning, systèmes de décision, optimisation combinatoire.
                     </p>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-number">Bac+4</div>
-                            <div class="stat-label">Cycle ingénieur</div>
+                    <div class="about-meta">
+                        <div class="about-meta-item">
+                            <span class="about-meta-label">[ localisation ]</span>
+                            <span>Saint-Denis, France</span>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number"><span class="stat-counter" data-target="2" data-suffix="+">0</span></div>
-                            <div class="stat-label">Projets ML & OR</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">FR / EN</div>
-                            <div class="stat-label">Langues (anglais B2)</div>
+                        <div class="about-meta-item">
+                            <span class="about-meta-label">[ disponibilité ]</span>
+                            <span>Stage 2–3 mois · ML & RO</span>
                         </div>
                     </div>
                 </div>
-                <div class="about-quick">
-                    <div class="about-card">
-                        <h3>Localisation</h3>
-                        <p>Saint-Denis, France</p>
+                <div class="about-stats">
+                    <div class="stat-ava">
+                        <span class="stat-ava-num">Bac+4</span>
+                        <span class="stat-ava-label">cycle ingénieur</span>
                     </div>
-                    <div class="about-card">
-                        <h3>Disponibilité</h3>
-                        <p>Stage 2–3 mois<br>ML Engineering & RO</p>
+                    <div class="stat-ava">
+                        <span class="stat-ava-num"><span class="stat-counter" data-target="2" data-suffix="+">0</span></span>
+                        <span class="stat-ava-label">projets ML & OR</span>
+                    </div>
+                    <div class="stat-ava">
+                        <span class="stat-ava-num">FR / EN</span>
+                        <span class="stat-ava-label">anglais B2</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Expériences</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Stagiaire Développeur Full-Stack</h3>
-                            <span class="timeline-company">Sonatel (Orange Sénégal)</span>
-                            <span class="timeline-date">Juillet 2024 – Septembre 2024 · Dakar, Sénégal</span>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>Initiation et prise en main des technologies Angular, LoopBack et MongoDB</li>
-                            <li>Contribution à la conception et au développement d’une application web full-stack</li>
-                            <li>Réalisation d’un rapport de recherche sur les méthodes d’automatisation du déploiement (CI/CD, conteneurisation, etc.), avec présentation orale à l’équipe technique</li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- Experience : [ experience ]_ -->
+    <section id="experience" class="sec sec-alt">
+        <div class="sec-inner">
+            <h2 class="sec-title scroll-reveal">[ experience ]<span class="sec-title-suffix">_</span></h2>
+            <div class="timeline-ava">
+                <article class="timeline-ava-item">
+                    <header class="timeline-ava-head">
+                        <h3>Stagiaire Développeur Full-Stack</h3>
+                        <span class="timeline-ava-company">Sonatel (Orange Sénégal)</span>
+                        <span class="timeline-ava-date">Juillet – Sept. 2024 · Dakar</span>
+                    </header>
+                    <ul class="timeline-ava-list">
+                        <li>Angular, LoopBack, MongoDB — application web full-stack</li>
+                        <li>Rapport de recherche CI/CD, conteneurisation — présentation équipe technique</li>
+                    </ul>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Parcours</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Cycle d’Ingénieur Informatique</h3>
-                            <span class="timeline-company">Sup Galilée / Université Sorbonne Paris Nord</span>
-                            <span class="timeline-date">Septembre 2024 – Juin 2027 · Villetaneuse</span>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>Conception et développement logiciel : maîtrise des étapes de conception, développement, déploiement et conduite technique de projets informatiques</li>
-                            <li>Architecture réseau et bases de données : conception, gestion, administration des réseaux, modélisation et optimisation des bases de données</li>
-                            <li>Management de projets et analyse de données : pilotage d’équipes, gestion de projets, modélisation et analyse pour l’aide à la décision et l’optimisation des processus</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Classe Préparatoire MPSI</h3>
-                            <span class="timeline-company">École Supérieure Multinationale des Télécommunications (ESMT)</span>
-                            <span class="timeline-date">Septembre 2022 – Mai 2024 · Dakar, Sénégal</span>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>Maîtrise des fondamentaux scientifiques : mathématiques avancées, physique générale, sciences de l’ingénieur</li>
-                            <li>Capacités analytiques et rigueur : résolution de problèmes complexes, raisonnement logique, esprit critique</li>
-                            <li>Compétences en programmation : algorithmique, langage Python, outils de modélisation numérique</li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- Education : [ parcours ]_ -->
+    <section id="education" class="sec">
+        <div class="sec-inner">
+            <h2 class="sec-title scroll-reveal">[ parcours ]<span class="sec-title-suffix">_</span></h2>
+            <div class="timeline-ava">
+                <article class="timeline-ava-item">
+                    <header class="timeline-ava-head">
+                        <h3>Cycle Ingénieur Informatique</h3>
+                        <span class="timeline-ava-company">Sup Galilée / Sorbonne Paris Nord</span>
+                        <span class="timeline-ava-date">Sept. 2024 – Juin 2027 · Villetaneuse</span>
+                    </header>
+                    <ul class="timeline-ava-list">
+                        <li>Conception, développement, déploiement · Architecture réseau & BDD · Management de projets & analyse de données</li>
+                    </ul>
+                </article>
+                <article class="timeline-ava-item">
+                    <header class="timeline-ava-head">
+                        <h3>Classe Préparatoire MPSI</h3>
+                        <span class="timeline-ava-company">ESMT Dakar</span>
+                        <span class="timeline-ava-date">Sept. 2022 – Mai 2024</span>
+                    </header>
+                    <ul class="timeline-ava-list">
+                        <li>Maths, physique, SII · Algorithmique, Python, modélisation numérique</li>
+                    </ul>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Compétences</h2>
-            <div class="skills-grid">
-                <div class="skills-category">
-                    <h3>Programmation</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Julia</span>
-                        <span class="skill-tag">C / C++</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">PHP</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">TypeScript</span>
-                    </div>
+    <!-- Skills : [ skills ]_ -->
+    <section id="skills" class="sec sec-alt">
+        <div class="sec-inner">
+            <h2 class="sec-title scroll-reveal">[ skills ]<span class="sec-title-suffix">_</span></h2>
+            <div class="skills-ava">
+                <div class="skills-ava-block">
+                    <h3 class="skills-ava-cat">[ programmation ]</h3>
+                    <p class="skills-ava-tags">Python · Julia · C/C++ · Java · PHP · JavaScript · TypeScript</p>
                 </div>
-                <div class="skills-category">
-                    <h3>Bases de données</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">SQL avancé</span>
-                    </div>
+                <div class="skills-ava-block">
+                    <h3 class="skills-ava-cat">[ data & BDD ]</h3>
+                    <p class="skills-ava-tags">PostgreSQL · MySQL · MongoDB · SQL</p>
                 </div>
-                <div class="skills-category">
-                    <h3>Optimisation & Recherche opérationnelle</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">Optimisation combinatoire</span>
-                        <span class="skill-tag">p-médian, TSP, Knapsack</span>
-                        <span class="skill-tag">Heuristiques & métaheuristiques</span>
-                        <span class="skill-tag">PLNE</span>
-                        <span class="skill-tag">OR-Tools</span>
-                        <span class="skill-tag">PuLP</span>
-                        <span class="skill-tag">CPLEX</span>
-                        <span class="skill-tag">GLPK</span>
-                    </div>
+                <div class="skills-ava-block">
+                    <h3 class="skills-ava-cat">[ optimisation & RO ]</h3>
+                    <p class="skills-ava-tags">Combinatoire · p-médian, TSP, Knapsack · Heuristiques · PLNE · OR-Tools · PuLP · CPLEX · GLPK</p>
                 </div>
-                <div class="skills-category">
-                    <h3>Machine Learning & IA</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">Reinforcement Learning</span>
-                        <span class="skill-tag">Q-learning, SARSA</span>
-                        <span class="skill-tag">Apprentissage symbolique</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">SciPy</span>
-                    </div>
+                <div class="skills-ava-block">
+                    <h3 class="skills-ava-cat">[ ML & IA ]</h3>
+                    <p class="skills-ava-tags">Reinforcement Learning · Q-learning, SARSA · PyTorch · TensorFlow · Scikit-learn · NumPy · Pandas · SciPy</p>
                 </div>
-                <div class="skills-category">
-                    <h3>Outils & Méthodes</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">LaTeX</span>
-                        <span class="skill-tag">Markdown</span>
-                    </div>
+                <div class="skills-ava-block">
+                    <h3 class="skills-ava-cat">[ outils ]</h3>
+                    <p class="skills-ava-tags">Git · Linux · LaTeX · Markdown</p>
                 </div>
             </div>
-            <div class="soft-skills">
-                <h3 class="soft-skills-title">Soft skills</h3>
-                <div class="soft-skills-grid">
-                    <div class="soft-skill-item">Esprit analytique et résolution de problèmes complexes</div>
-                    <div class="soft-skill-item">Rigueur scientifique et sens du détail</div>
-                    <div class="soft-skill-item">Capacité d’apprentissage rapide et autonomie</div>
-                    <div class="soft-skill-item">Pensée critique et esprit de synthèse</div>
-                    <div class="soft-skill-item">Travail en équipe et collaboration interdisciplinaire</div>
-                    <div class="soft-skill-item">Communication claire</div>
-                </div>
+            <div class="soft-ava">
+                <h3 class="soft-ava-title">[ soft skills ]</h3>
+                <p class="soft-ava-text">Esprit analytique · Rigueur scientifique · Autonomie · Pensée critique · Travail en équipe · Communication</p>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Projets</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <a href="projet_rl.html" class="project-card-link">
-                        <div class="project-image">
-                            <div class="project-placeholder">RL</div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Reinforcement Learning</h3>
-                            <p class="project-description">
-                                Projets de recherche en Reinforcement Learning pour l'optimisation de trajectoires 
-                                et systèmes de décision.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">RL</span>
-                                <span class="tag">Optimization</span>
-                                <span class="tag">Python</span>
-                            </div>
-                            <span class="project-link">Voir la page du projet →</span>
-                        </div>
-                    </a>
-                    <div class="project-card-actions">
-                        <a href="projet_rl.html" class="btn btn-small btn-outline" target="_blank" rel="noopener">Page projet</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <a href="projet_or.html" class="project-card-link">
-                        <div class="project-image">
-                            <div class="project-placeholder">OR</div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Recherche opérationnelle</h3>
-                            <p class="project-description">
-                                Ring-Star Problem (transport public) : p-médian, TSP, heuristiques et PLNE.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Optimization</span>
-                                <span class="tag">OR</span>
-                                <span class="tag">Algorithms</span>
-                            </div>
-                            <span class="project-link">Voir la page du projet →</span>
-                        </div>
-                    </a>
-                    <div class="project-card-actions">
-                        <a href="projet_or.html" class="btn btn-small btn-outline" target="_blank" rel="noopener">Page projet</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <a href="projet_mlops.html" class="project-card-link">
-                        <div class="project-image">
-                            <div class="project-placeholder">ML</div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">ML Engineering & MLOps</h3>
-                            <p class="project-description">
-                                Systèmes de Machine Learning robustes et scalables pour applications industrielles.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">ML</span>
-                                <span class="tag">Engineering</span>
-                                <span class="tag">PyTorch</span>
-                            </div>
-                            <span class="project-link">Voir la page du projet →</span>
-                        </div>
-                    </a>
-                    <div class="project-card-actions">
-                        <a href="projet_mlops.html" class="btn btn-small btn-outline" target="_blank" rel="noopener">Page projet</a>
-                    </div>
-                </div>
+    <!-- Projects : [ projects ]_ -->
+    <section id="projects" class="sec">
+        <div class="sec-inner">
+            <h2 class="sec-title scroll-reveal">[ projects ]<span class="sec-title-suffix">_</span></h2>
+            <p class="sec-subtitle scroll-reveal">See the work.</p>
+            <div class="projects-ava">
+                <a href="projet_rl.html" class="project-ava-card">
+                    <span class="project-ava-label">RL</span>
+                    <h3 class="project-ava-title">Reinforcement Learning</h3>
+                    <p class="project-ava-desc">Optimisation de trajectoires et systèmes de décision.</p>
+                    <span class="project-ava-link">View project <span class="btn-arrow btn-arrow-sm"></span></span>
+                </a>
+                <a href="projet_or.html" class="project-ava-card">
+                    <span class="project-ava-label">OR</span>
+                    <h3 class="project-ava-title">Recherche opérationnelle</h3>
+                    <p class="project-ava-desc">Ring-Star Problem — p-médian, TSP, heuristiques, PLNE.</p>
+                    <span class="project-ava-link">View project <span class="btn-arrow btn-arrow-sm"></span></span>
+                </a>
+                <a href="projet_mlops.html" class="project-ava-card">
+                    <span class="project-ava-label">ML</span>
+                    <h3 class="project-ava-title">ML Engineering & MLOps</h3>
+                    <p class="project-ava-desc">Systèmes ML robustes et scalables.</p>
+                    <span class="project-ava-link">View project <span class="btn-arrow btn-arrow-sm"></span></span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Contact</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p>
-                        Intéressé par une collaboration ou une discussion sur l'IA, le RL ou l'optimisation ? 
-                        N'hésitez pas à me contacter.
-                    </p>
-                    <div class="contact-links">
-                        <a href="https://github.com/lamine2004sow" class="contact-link" target="_blank" rel="noopener">
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://linkedin.com/in/lamine-sow" class="contact-link" target="_blank" rel="noopener">
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="mailto:lamine.2004pro.sow@gmail.com" class="contact-link">
-                            <span>Email</span>
-                        </a>
-                    </div>
-                </div>
+    <!-- Contact : [ contact ]_ -->
+    <section id="contact" class="sec sec-alt">
+        <div class="sec-inner">
+            <h2 class="sec-title scroll-reveal">[ contact ]<span class="sec-title-suffix">_</span></h2>
+            <p class="contact-lead scroll-reveal">Collaboration ou discussion sur l’IA, le RL ou l’optimisation.</p>
+            <div class="contact-links-ava">
+                <a href="https://github.com/lamine2004sow" class="contact-ava-link" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/lamine-sow" class="contact-ava-link" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="mailto:lamine.2004pro.sow@gmail.com" class="contact-ava-link">Email</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Mouhamadou Lamine Sow. Tous droits réservés.</p>
+    <footer class="footer-ava">
+        <div class="sec-inner">
+            <p><span class="footer-ava-year">’26</span> Mouhamadou Lamine Sow</p>
         </div>
     </footer>
 
