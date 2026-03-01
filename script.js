@@ -264,63 +264,75 @@ function initGSAP() {
 
   // Reveal elements on scroll
   $$('.reveal').forEach(el => {
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        toggleActions: 'play none none none',
-      },
-      opacity: 0,
-      y: 36,
-      duration: 0.8,
-      ease: 'power3.out',
-    });
+    gsap.fromTo(el,
+      { opacity: 0, y: 36 },
+      {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+      }
+    );
   });
 
   // Reveal from left
   $$('.reveal-left').forEach(el => {
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        toggleActions: 'play none none none',
-      },
-      opacity: 0,
-      x: -40,
-      duration: 0.8,
-      ease: 'power3.out',
-    });
+    gsap.fromTo(el,
+      { opacity: 0, x: -40 },
+      {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+        },
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+      }
+    );
   });
 
   // Stagger reveal for grids
   $$('.stagger-reveal').forEach(container => {
     const children = container.children;
-    gsap.from(children, {
-      scrollTrigger: {
-        trigger: container,
-        start: 'top 82%',
-        toggleActions: 'play none none none',
-      },
-      opacity: 0,
-      y: 40,
-      duration: 0.7,
-      stagger: 0.12,
-      ease: 'power3.out',
-    });
+    gsap.fromTo(children,
+      { opacity: 0, y: 40 },
+      {
+        scrollTrigger: {
+          trigger: container,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: 'power3.out',
+      }
+    );
   });
 
   // Section markers
   $$('.sec-marker').forEach(el => {
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 90%',
-      },
-      opacity: 0,
-      x: -20,
-      duration: 0.6,
-      ease: 'power2.out',
-    });
+    gsap.fromTo(el,
+      { opacity: 0, x: -20 },
+      {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 92%',
+        },
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+      }
+    );
   });
 }
 
@@ -481,29 +493,35 @@ function initProjectPage() {
 
     // Project items stagger on scroll
     $$('.proj-item').forEach((item, i) => {
-      gsap.from(item, {
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        },
-        opacity: 0,
-        y: 40,
-        duration: 0.75,
-        ease: 'power3.out',
-        delay: i * 0.05,
-      });
+      gsap.fromTo(item,
+        { opacity: 0, y: 40 },
+        {
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 88%',
+            toggleActions: 'play none none none',
+          },
+          opacity: 1,
+          y: 0,
+          duration: 0.75,
+          ease: 'power3.out',
+          delay: i * 0.05,
+        }
+      );
     });
 
     // Reveal elements
     $$('.reveal').forEach(el => {
-      gsap.from(el, {
-        scrollTrigger: { trigger: el, start: 'top 88%' },
-        opacity: 0,
-        y: 30,
-        duration: 0.7,
-        ease: 'power3.out',
-      });
+      gsap.fromTo(el,
+        { opacity: 0, y: 30 },
+        {
+          scrollTrigger: { trigger: el, start: 'top 90%' },
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power3.out',
+        }
+      );
     });
   }
 }

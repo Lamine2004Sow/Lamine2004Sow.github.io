@@ -684,6 +684,77 @@ section { position: relative; z-index: 10; }
 }
 .about-info-block .v { color: var(--accent); }
 
+/* ── 12b. OPEN TO WORK ───────────────────────────────────────── */
+.open-work {
+  margin-top: 40px;
+  border: 1px solid rgba(0,255,65,0.2);
+  background: rgba(0,255,65,0.03);
+  padding: 24px;
+}
+
+.open-work-hd {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-sub);
+}
+
+.open-badge {
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 1px;
+  animation: blink 2s step-end infinite;
+}
+
+.pos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pos-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-sub);
+  transition: background .2s;
+}
+.pos-item:last-child { border-bottom: none; }
+
+.pos-arrow {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform .2s ease;
+}
+.pos-item:hover .pos-arrow { transform: translateX(4px); }
+
+.pos-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.pos-desc {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
 /* ── 13. SKILLS ──────────────────────────────────────────────── */
 #skills { background: var(--bg-primary); }
 
@@ -1190,9 +1261,9 @@ footer {
   100%{ clip-path: polygon(0 55%, 100% 55%, 100% 60%, 0 60%); transform: translate(-2px,0); }
 }
 
-/* ── 20. REVEAL ANIMATION CLASSES (GSAP sets opacity/y) ──────── */
-.reveal { opacity: 0; transform: translateY(40px); will-change: opacity, transform; }
-.reveal-left { opacity: 0; transform: translateX(-40px); will-change: opacity, transform; }
+/* ── 20. REVEAL ANIMATION CLASSES (GSAP handles opacity/y via fromTo) ── */
+.reveal      { will-change: opacity, transform; }
+.reveal-left { will-change: opacity, transform; }
 
 /* ── 21. RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 1024px) {
