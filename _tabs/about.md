@@ -3,13 +3,13 @@ icon: fas fa-user
 order: 1
 ---
 
-# [Ton Prénom Nom]
+# Mouhamadou Lamine SOW
 
-**Étudiant Ingénieur en [ta filière]** — [Ton École / Université], [Ville]
+**Étudiant Ingénieur en Informatique** — Sup Galilée / Université Sorbonne Paris Nord, Villetaneuse
 
-> Je recherche un stage d'assistant ingénieur de 6 mois à partir de [mois année].
-> Passionné par [tes domaines d'intérêt], je cherche à mettre en pratique mes compétences
-> dans un environnement professionnel stimulant.
+> Étudiant en 2ᵉ année du cycle ingénieur (Bac+4), je recherche un stage de 2 à 3 mois en
+> **ML Engineering – Recherche Opérationnelle**. Je souhaite mettre en pratique mes compétences
+> en **analyse statistique, machine learning et optimisation** dans un environnement innovant et challengeant.
 
 ---
 
@@ -17,48 +17,86 @@ order: 1
 
 | | |
 |---|---|
-| **Email** | [ton.email@example.com](mailto:ton.email@example.com) |
-| **LinkedIn** | [linkedin.com/in/ton-profil](https://www.linkedin.com/in/ton-profil) |
+| **Email** | [lamine.2004pro.sow@gmail.com](mailto:lamine.2004pro.sow@gmail.com) |
+| **Téléphone** | +33 7 58 59 80 42 |
 | **GitHub** | [github.com/lamine2004sow](https://github.com/lamine2004sow) |
-| **Localisation** | [Ville, Pays] |
+| **LinkedIn** | [linkedin.com/in/lamine-sow](https://www.linkedin.com/in/lamine-sow) |
+| **Localisation** | 93200 Saint-Denis, France |
+| **CV** | [Télécharger le CV](/assets/cv/lamine.pdf) |
 
 ---
 
 ## Formation
 
-### [Diplôme visé] — [Ton École]
-*[Année début] – [Année fin prévue]* · [Ville]
+### Cycle d'Ingénieur Informatique — Sup Galilée / Université Sorbonne Paris Nord
+*Septembre 2024 – Juin 2027* · Villetaneuse
 
-- Spécialisation : [ta spécialisation]
-- Cours pertinents : [cours 1], [cours 2], [cours 3]
+- Conception et développement logiciel · Architecture réseau et bases de données
+- Management de projets · Modélisation et analyse de données pour l'aide à la décision
+- **Spécialisation visée** : Systèmes Multi-Agents, Reinforcement Learning, Optimisation
 
-### [Diplôme précédent si applicable]
-*[Année]* · [Établissement]
+### Classe Préparatoire MPSI — ESMT (École Supérieure Multinationale des Télécommunications)
+*Septembre 2022 – Mai 2024* · Dakar, Sénégal
+
+- Fondamentaux scientifiques : mathématiques avancées, physique générale, sciences de l'ingénieur
+- Capacités analytiques, raisonnement logique, esprit critique
+- Compétences en algorithmique et modélisation numérique (Python)
 
 ---
 
 ## Compétences
 
 ### Programmation
-`Python` · `C/C++` · `Java` · `[autres langages]`
+`Python` · `Julia` · `C / C++` · `Java` · `PHP` · `JavaScript` · `TypeScript`
 
-### Outils & Frameworks
-`[outil 1]` · `[outil 2]` · `[outil 3]` · `Git` · `Linux`
+### Bases de Données
+`PostgreSQL` · `MySQL` · `MongoDB` · SQL avancé (agrégations, jointures)
 
-### Domaines
-- [Domaine 1] (ex: Systèmes embarqués)
-- [Domaine 2] (ex: Traitement du signal)
-- [Domaine 3] (ex: Réseaux)
+### Optimisation & Recherche Opérationnelle
+- Optimisation combinatoire : p-médian, TSP, Knapsack
+- Heuristiques & métaheuristiques (glouton, recuit simulé, tabou, génétique)
+- Programmation Linéaire en Nombres Entiers (PLNE) · Séparation de contraintes
+- `OR-Tools` · `PuLP` · `CPLEX` · `GLPK`
+
+### Machine Learning & IA
+- Apprentissage supervisé / non supervisé / symbolique
+- Reinforcement Learning : Q-learning, SARSA, descente de gradient
+- `Scikit-learn` · `PyTorch` · `TensorFlow`
+
+### Algorithmes & Mathématiques
+Algorithmes de graphes · Probabilités & statistiques · Algèbre linéaire · Analyse numérique
+
+### Bibliothèques Python
+`NumPy` · `Pandas` · `SciPy` · `Scikit-learn` · `PyTorch` · `TensorFlow`
+
+### Outils
+`Git` · `Linux` · `LaTeX` · `Markdown`
 
 ---
 
-## Expériences
+## Expérience Professionnelle
 
-### [Titre du poste] — [Entreprise/Labo]
-*[Mois Année] – [Mois Année]* · [Ville]
+### Stagiaire Développeur Full-Stack — Sonatel (Orange Sénégal)
+*Juillet 2024 – Septembre 2024* · Dakar, Sénégal
 
-- [Description courte de la mission]
-- [Résultat ou compétence acquise]
+- Prise en main d'**Angular**, **LoopBack** et **MongoDB** dans un contexte production
+- Contribution à la conception et au développement d'une application web full-stack
+- Réalisation d'un rapport de recherche sur les méthodes d'automatisation du déploiement (CI/CD, conteneurisation) avec présentation orale à l'équipe technique
+
+---
+
+## Projets Réalisés
+
+### Optimization & ML | Ring-Star Problem (Transport Public)
+*2026* · Python
+
+Modélisation d'un problème NP-difficile combinant **p-médian** et **TSP** pour l'optimisation de réseaux de transport public.
+Implémentation de heuristiques (glouton, randomisé, amélioration itérative), formulation PLNE compacte et analyse de performance sur instances réelles (TSPlib).
+
+### Analyse des données Parcoursup — Académie de Créteil
+*2025* · Python, Pandas, NumPy, Scikit-learn
+
+Prétraitement et structuration de données, feature engineering, apprentissage supervisé (régression linéaire) et non supervisé (ACP), tests statistiques (SciPy – χ²).
 
 ---
 
@@ -66,12 +104,11 @@ order: 1
 
 | Langue | Niveau |
 |--------|--------|
-| Français | Langue maternelle |
-| Anglais | [Niveau] (TOEIC : [score si applicable]) |
-| [Autre] | [Niveau] |
+| Français | Langue maternelle / Bilingue |
+| Anglais | Avancé — B2 |
 
 ---
 
 ## Centres d'intérêt
 
-[Intérêt 1] · [Intérêt 2] · [Intérêt 3]
+Systèmes complexes · Jeux de stratégie · Mathématiques appliquées · Open source

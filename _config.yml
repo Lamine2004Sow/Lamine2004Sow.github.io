@@ -8,11 +8,12 @@ lang: fr
 timezone: Europe/Paris
 
 # ---- Infos principales ----
-title: "[Ton Prénom Nom]"          # ex: Lamine Sow
-tagline: "Étudiant Ingénieur | Recherche de stage 6 mois"
+title: "Mouhamadou Lamine SOW"
+tagline: "Étudiant Ingénieur | IA · ML · Recherche Opérationnelle"
 description: >-
   Portfolio académique et professionnel.
-  Étudiant en [ta filière] à [ton école/université].
+  Étudiant Ingénieur Informatique à Sup Galilée / Université Sorbonne Paris Nord.
+  Spécialisation : Systèmes Multi-Agents, Reinforcement Learning, Neural Networks, Optimisation.
 
 url: "https://lamine2004sow.github.io"
 
@@ -21,12 +22,11 @@ github:
   username: lamine2004sow
 
 social:
-  name: "[Ton Prénom Nom]"          # ex: Lamine Sow
-  email: "[ton.email@example.com]"
+  name: "Mouhamadou Lamine SOW"
+  email: "lamine.2004pro.sow@gmail.com"
   links:
     - https://github.com/lamine2004sow
-    - https://www.linkedin.com/in/[ton-profil-linkedin]
-    # - https://twitter.com/[ton_twitter]
+    - https://www.linkedin.com/in/lamine-sow
 
 # ---- Avatar ----
 avatar: /assets/img/avatar.jpg     # place ta photo ici (200×200 px minimum)

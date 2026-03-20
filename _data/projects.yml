@@ -1,0 +1,401 @@
+# Projets proposés et réalisés
+# themes: rl (RL / Multi-Agent), nn (Réseaux de Neurones), or (Optimisation / OR), ml (Machine Learning)
+# level: debutant | intermediaire | avance
+# status: done | proposed
+
+# ─────────────────────────────────────────────
+#  REINFORCEMENT LEARNING / MULTI-AGENT
+# ─────────────────────────────────────────────
+
+- id: gridworld-qlearning
+  title: "Gridworld Q-Learning"
+  subtitle: "Navigation dans un labyrinthe avec Q-learning tabular"
+  themes: [rl]
+  level: debutant
+  status: proposed
+  tech: [Python, NumPy, Matplotlib]
+  description: >
+    Implémentation from scratch de Q-learning tabular pour apprendre à naviguer dans
+    un labyrinthe discret (GridWorld). Politique ε-greedy, convergence de la Q-table,
+    visualisation de la politique apprise.
+  objectives:
+    - "Comprendre les équations de Bellman et la mise à jour Q"
+    - "Implémenter la boucle agent-environnement"
+    - "Visualiser la convergence de la récompense cumulée"
+
+- id: sarsa-cartpole
+  title: "SARSA sur CartPole"
+  subtitle: "Équilibrage de perche avec politique ε-greedy"
+  themes: [rl]
+  level: debutant
+  status: proposed
+  tech: [Python, Gymnasium, NumPy, Matplotlib]
+  description: >
+    Utilisation de SARSA (on-policy TD) pour résoudre CartPole-v1 de Gymnasium.
+    Discrétisation de l'espace d'état, comparaison SARSA vs Q-learning,
+    analyse de la sensibilité aux hyperparamètres (α, γ, ε).
+  objectives:
+    - "Distinguer on-policy (SARSA) et off-policy (Q-learning)"
+    - "Gérer un espace continu par discrétisation"
+    - "Comparer les courbes d'apprentissage"
+
+- id: dqn-atari
+  title: "Deep Q-Network (DQN)"
+  subtitle: "Jeu Atari avec replay memory et réseau cible"
+  themes: [rl, nn]
+  level: intermediaire
+  status: proposed
+  tech: [Python, PyTorch, Gymnasium, NumPy]
+  description: >
+    Implémentation du DQN de DeepMind : réseau neuronal pour approximer Q(s,a),
+    experience replay buffer, réseau cible gelé pour la stabilité.
+    Application sur Atari Pong ou LunarLander-v2.
+  objectives:
+    - "Remplacer la Q-table par un réseau de neurones"
+    - "Implémenter experience replay et target network"
+    - "Analyser les instabilités d'entraînement et les solutions"
+
+- id: predateur-proie-multiagent
+  title: "Prédateur-Proie Multi-Agent"
+  subtitle: "Coopération émergente avec Q-learning indépendant"
+  themes: [rl]
+  level: intermediaire
+  status: proposed
+  tech: [Python, PettingZoo, NumPy, Matplotlib]
+  description: >
+    Environnement multi-agent où plusieurs prédateurs doivent coopérer pour capturer
+    une proie. Q-learning indépendant (IQL) par agent, analyse des stratégies émergentes
+    et limites du paradigme indépendant (non-stationnarité).
+  objectives:
+    - "Modéliser un environnement multi-agent (MARL)"
+    - "Observer l'émergence de comportements coopératifs"
+    - "Identifier les limites de l'IQL"
+
+- id: maddpg-jeu-competitif
+  title: "MADDPG — Jeu Compétitif"
+  subtitle: "Multi-Agent Deep Deterministic Policy Gradient"
+  themes: [rl, nn]
+  level: avance
+  status: proposed
+  tech: [Python, PyTorch, PettingZoo, NumPy]
+  description: >
+    Implémentation de MADDPG pour un environnement mixte coopératif-compétitif.
+    Chaque agent a un acteur local et un critique centralisé.
+    Analyse de la convergence, instabilités et techniques de stabilisation.
+  objectives:
+    - "Implémenter l'architecture acteur-critique centralisé"
+    - "Gérer des espaces d'action continus en multi-agent"
+    - "Évaluer les stratégies Nash émergentes"
+
+- id: rl-tsp-pointer-network
+  title: "RL pour le TSP — Pointer Network"
+  subtitle: "Résolution du Voyageur de Commerce via Reinforcement Learning"
+  themes: [rl, nn, or]
+  level: avance
+  status: proposed
+  tech: [Python, PyTorch, NumPy, OR-Tools]
+  description: >
+    Utilisation d'un Pointer Network (mécanisme d'attention + RL) pour apprendre
+    à résoudre le TSP. Comparaison avec les solveurs classiques (OR-Tools, heuristiques).
+    Reproduit l'approche Bello et al. 2016.
+  objectives:
+    - "Combiner apprentissage par renforcement et architecture Transformer"
+    - "Généraliser sur des instances de tailles variables"
+    - "Comparer qualité de solution vs temps de calcul"
+
+# ─────────────────────────────────────────────
+#  RÉSEAUX DE NEURONES
+# ─────────────────────────────────────────────
+
+- id: mlp-scratch-mnist
+  title: "MLP from Scratch — MNIST"
+  subtitle: "Réseau multicouche implémenté en NumPy pur"
+  themes: [nn]
+  level: debutant
+  status: proposed
+  tech: [Python, NumPy, Matplotlib]
+  description: >
+    Construction d'un perceptron multicouche (MLP) de zéro avec NumPy :
+    forward pass, rétropropagation, descente de gradient.
+    Classification des chiffres manuscrits MNIST, visualisation des neurones.
+  objectives:
+    - "Implémenter la rétropropagation sans framework"
+    - "Comprendre les activations, pertes et régularisation"
+    - "Atteindre >97% de précision sur MNIST"
+
+- id: cnn-cifar10
+  title: "CNN Classification — CIFAR-10"
+  subtitle: "Réseau convolutif avec PyTorch"
+  themes: [nn]
+  level: debutant
+  status: proposed
+  tech: [Python, PyTorch, Matplotlib]
+  description: >
+    Conception et entraînement d'un CNN pour la classification d'images CIFAR-10.
+    Convolutions, pooling, batch normalization, data augmentation, transfer learning avec ResNet.
+  objectives:
+    - "Comprendre l'architecture CNN et les convolutions"
+    - "Appliquer le transfer learning (ResNet pré-entraîné)"
+    - "Analyser les feature maps et erreurs de classification"
+
+- id: lstm-series-temporelles
+  title: "LSTM Séries Temporelles"
+  subtitle: "Prévision de séries financières ou météo"
+  themes: [nn, ml]
+  level: intermediaire
+  status: proposed
+  tech: [Python, PyTorch, Pandas, Scikit-learn]
+  description: >
+    Modèle LSTM pour la prévision de séries temporelles (prix d'actions ou données météo).
+    Fenêtrage temporel, normalisation, évaluation RMSE/MAE, comparaison avec ARIMA.
+  objectives:
+    - "Préparer des données séquentielles pour le deep learning"
+    - "Tuner les hyperparamètres (couches, cellules, dropout)"
+    - "Comparer approches statistiques vs deep learning"
+
+- id: autoencoder-anomaly
+  title: "Autoencoder — Détection d'Anomalies"
+  subtitle: "Détection non supervisée par reconstruction"
+  themes: [nn, ml]
+  level: intermediaire
+  status: proposed
+  tech: [Python, PyTorch, Pandas, Scikit-learn, Matplotlib]
+  description: >
+    Autoencoder convolutif entraîné uniquement sur des données normales.
+    Les anomalies sont détectées par seuil sur l'erreur de reconstruction.
+    Application sur données industrielles (vibrations, logs réseau).
+  objectives:
+    - "Comprendre l'espace latent et la compression"
+    - "Calibrer le seuil de détection (ROC, F1)"
+    - "Comparer avec méthodes classiques (Isolation Forest)"
+
+- id: transformer-scratch
+  title: "Transformer from Scratch"
+  subtitle: "Implémentation complète du mécanisme d'attention"
+  themes: [nn]
+  level: avance
+  status: proposed
+  tech: [Python, PyTorch, NumPy]
+  description: >
+    Implémentation du Transformer (Vaswani et al. 2017) de zéro : multi-head attention,
+    positional encoding, encoder-decoder. Application sur traduction ou classification de texte.
+  objectives:
+    - "Maîtriser le mécanisme d'attention (scaled dot-product)"
+    - "Implémenter l'encodage positionnel et les couches Feed-Forward"
+    - "Analyser les têtes d'attention et ce qu'elles apprennent"
+
+- id: gnn-graphes-transport
+  title: "GNN — Graphes de Transport"
+  subtitle: "Graph Neural Network pour prédiction et optimisation"
+  themes: [nn, or]
+  level: avance
+  status: proposed
+  tech: [Python, PyTorch, PyTorch-Geometric, NetworkX]
+  description: >
+    Réseau de neurones sur graphe (GCN / GraphSAGE) appliqué à un graphe de transport.
+    Prédiction de temps de trajet, détection de congestion, aide à la décision pour
+    le routage optimal.
+  objectives:
+    - "Modéliser des données structurées en graphe"
+    - "Implémenter la convolution sur graphe (message passing)"
+    - "Coupler avec un solveur d'optimisation pour le routage"
+
+# ─────────────────────────────────────────────
+#  OPTIMISATION / RECHERCHE OPÉRATIONNELLE
+# ─────────────────────────────────────────────
+
+- id: knapsack-dp-heuristiques
+  title: "Knapsack Problem — DP & Heuristiques"
+  subtitle: "Sac à dos 0/1 : programmation dynamique et heuristiques"
+  themes: [or]
+  level: debutant
+  status: proposed
+  tech: [Python, NumPy, Matplotlib]
+  description: >
+    Résolution du problème du sac à dos 0/1 par programmation dynamique exacte,
+    Branch & Bound, et heuristiques greedy. Comparaison qualité/temps sur instances
+    de tailles croissantes.
+  objectives:
+    - "Implémenter la DP exacte et analyser la complexité"
+    - "Comprendre le trade-off qualité de solution / temps de calcul"
+    - "Visualiser les frontières de Pareto"
+
+- id: coloration-graphe
+  title: "Coloration de Graphe"
+  subtitle: "Algorithmes gloutons, backtracking, DSATUR"
+  themes: [or]
+  level: debutant
+  status: proposed
+  tech: [Python, NetworkX, Matplotlib]
+  description: >
+    Implémentation et comparaison d'algorithmes de coloration de graphe : glouton,
+    backtracking avec élagage, DSATUR. Application à la planification d'examens
+    (éviter les conflits horaires).
+  objectives:
+    - "Modéliser un problème réel comme un graphe"
+    - "Comparer heuristiques déterministes vs exactes"
+    - "Analyser le nombre chromatique et ses bornes"
+
+- id: tsp-metaheuristiques
+  title: "TSP — Métaheuristiques"
+  subtitle: "Voyageur de Commerce : recuit simulé, tabou, génétique"
+  themes: [or]
+  level: intermediaire
+  status: proposed
+  tech: [Python, NumPy, Matplotlib, OR-Tools]
+  description: >
+    Résolution du TSP avec trois métaheuristiques : recuit simulé, recherche tabou,
+    algorithme génétique. Benchmarks sur instances TSPlib, comparaison qualité/temps
+    et visualisation des tournées.
+  objectives:
+    - "Implémenter et paramétrer chaque métaheuristique"
+    - "Analyser la sensibilité aux paramètres (température, taille population)"
+    - "Comparer avec le solveur exact OR-Tools"
+
+- id: scheduling-plne
+  title: "Scheduling avec PLNE"
+  subtitle: "Ordonnancement d'emploi du temps par programmation linéaire"
+  themes: [or]
+  level: intermediaire
+  status: proposed
+  tech: [Python, PuLP, CPLEX, Pandas]
+  description: >
+    Modélisation et résolution d'un problème d'ordonnancement (emploi du temps étudiant
+    ou planning d'équipes) par PLNE avec PuLP/CPLEX. Gestion des contraintes dures et
+    molles, analyse de sensibilité.
+  objectives:
+    - "Formuler un problème réel en PLNE"
+    - "Utiliser un solveur (PuLP / CPLEX) et interpréter les résultats"
+    - "Identifier les contraintes bottleneck par analyse duale"
+
+- id: ring-star-problem
+  title: "Ring-Star Problem — Transport Public"
+  subtitle: "Optimisation NP-difficile combinant p-médian et TSP"
+  themes: [or, ml]
+  level: avance
+  status: done
+  tech: [Python, NumPy, OR-Tools, Matplotlib]
+  description: >
+    Modélisation du Ring-Star Problem (RSP) pour l'optimisation de réseaux de transport.
+    Heuristiques constructives et d'amélioration itérative, formulation PLNE compacte,
+    analyse sur instances TSPlib réelles avec variation du paramètre p.
+  objectives:
+    - "Modéliser un problème NP-difficile combinant p-médian et TSP"
+    - "Implémenter et comparer heuristiques vs PLNE"
+    - "Analyser la qualité des solutions sur benchmarks réels"
+
+- id: optimisation-stochastique-ml
+  title: "Optimisation Stochastique Guidée par ML"
+  subtitle: "Heuristiques intelligentes pour problèmes d'OR sous incertitude"
+  themes: [or, ml]
+  level: avance
+  status: proposed
+  tech: [Python, Scikit-learn, PuLP, NumPy, Pandas]
+  description: >
+    Apprentissage d'une politique de sélection de voisinage pour améliorer les
+    heuristiques de recherche locale (Large Neighborhood Search guidé par ML).
+    Application à la planification logistique avec demande incertaine.
+  objectives:
+    - "Entraîner un classifieur pour prédire les bonnes opérations de voisinage"
+    - "Intégrer ML dans la boucle d'optimisation"
+    - "Évaluer le gain en qualité par rapport aux heuristiques classiques"
+
+# ─────────────────────────────────────────────
+#  MACHINE LEARNING
+# ─────────────────────────────────────────────
+
+- id: parcoursup-eda
+  title: "Analyse Parcoursup — Académie de Créteil"
+  subtitle: "EDA, ML supervisé et non supervisé sur données réelles"
+  themes: [ml]
+  level: debutant
+  status: done
+  tech: [Python, Pandas, NumPy, Scikit-learn, Matplotlib]
+  description: >
+    Prétraitement et structuration de données Parcoursup. Feature engineering,
+    sélection de variables, régression linéaire supervisée, ACP non supervisée,
+    tests statistiques (χ²). Visualisation des disparités d'accès par académie.
+  objectives:
+    - "Maîtriser le pipeline EDA → feature engineering → modélisation"
+    - "Interpréter les résultats d'ACP et de régression"
+    - "Produire des visualisations lisibles pour non-spécialistes"
+
+- id: regression-from-scratch
+  title: "Régression & Classification from Scratch"
+  subtitle: "Régression linéaire et logistique en NumPy pur"
+  themes: [ml]
+  level: debutant
+  status: proposed
+  tech: [Python, NumPy, Matplotlib]
+  description: >
+    Implémentation de la régression linéaire (moindres carrés, gradient), de la
+    régression logistique (sigmoïde, cross-entropy) et de la régularisation (L1/L2)
+    sans bibliothèque ML. Visualisation des frontières de décision.
+  objectives:
+    - "Comprendre les optimisations sous-jacentes à Scikit-learn"
+    - "Implémenter descente de gradient et variantes (SGD, mini-batch)"
+    - "Analyser l'effet du surapprentissage et de la régularisation"
+
+- id: ensemble-methods-xgboost
+  title: "Ensemble Methods — XGBoost & SHAP"
+  subtitle: "Random Forest, XGBoost et interprétabilité sur données tabulaires"
+  themes: [ml]
+  level: intermediaire
+  status: proposed
+  tech: [Python, Scikit-learn, XGBoost, SHAP, Pandas]
+  description: >
+    Pipeline complet de classification sur données tabulaires : Random Forest,
+    Gradient Boosting, XGBoost avec tuning d'hyperparamètres (Optuna).
+    Interprétabilité globale et locale via SHAP values.
+  objectives:
+    - "Tuner des modèles d'ensemble efficacement"
+    - "Expliquer les prédictions avec SHAP"
+    - "Gérer les données déséquilibrées (SMOTE, class_weight)"
+
+- id: clustering-non-supervise
+  title: "Clustering & Réduction de Dimension"
+  subtitle: "K-means, DBSCAN, GMM + visualisation UMAP / t-SNE"
+  themes: [ml, or]
+  level: intermediaire
+  status: proposed
+  tech: [Python, Scikit-learn, UMAP, Pandas, Matplotlib]
+  description: >
+    Comparaison de K-means, DBSCAN et Gaussian Mixture Models sur des jeux de données
+    variés (formes complexes, bruit). Visualisation en 2D via UMAP et t-SNE.
+    Application : segmentation client ou détection de communautés dans des graphes.
+  objectives:
+    - "Choisir le bon algorithme selon la géométrie des données"
+    - "Évaluer la qualité sans label (silhouette, Davies-Bouldin)"
+    - "Interpréter les clusters dans un contexte applicatif"
+
+- id: pipeline-ml-production
+  title: "Pipeline ML Production-Ready"
+  subtitle: "Feature selection, cross-validation, MLflow, déploiement"
+  themes: [ml]
+  level: avance
+  status: proposed
+  tech: [Python, Scikit-learn, MLflow, FastAPI, Docker]
+  description: >
+    Construction d'un pipeline ML complet : sélection de features (recursive, SHAP),
+    validation croisée imbriquée, traçage des expériences avec MLflow,
+    exposition via FastAPI et conteneurisation Docker.
+  objectives:
+    - "Structurer un projet ML de façon reproductible"
+    - "Tracker les expériences et versions de modèles (MLflow)"
+    - "Déployer un modèle en API REST et Dockeriser"
+
+- id: time-series-attention
+  title: "Time Series Forecasting + Attention"
+  subtitle: "Prévision longue portée avec mécanisme d'attention"
+  themes: [ml, nn]
+  level: avance
+  status: proposed
+  tech: [Python, PyTorch, Pandas, Scikit-learn, Matplotlib]
+  description: >
+    Modèle de prévision de séries temporelles longues (Informer / Temporal Fusion
+    Transformer). Mécanisme d'attention temporelle, gestion de saisonnalités multiples,
+    évaluation RMSE/MAPE vs baselines (ARIMA, Prophet, LSTM).
+  objectives:
+    - "Implémenter un mécanisme d'attention adapté aux séries temporelles"
+    - "Comparer architectures (LSTM, Informer, TFT)"
+    - "Analyser l'interprétabilité des poids d'attention"
